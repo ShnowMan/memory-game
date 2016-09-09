@@ -1,0 +1,59 @@
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.bio {
+  height: 320px;
+  margin: 20px 0px;
+  border: 1px solid black;
+}
+
+#aboutUsHeader {
+  text-align: center;
+}
+
+#aboutUsHeader > h1 {
+  font-size: 40px;
+}
+
+.bio > img, p {
+  float: left;
+  height: 300px;
+}
+
+.bio > img {
+  margin: 10px;
+}
+
+.bio > p {
+  width: 500px;
+  margin-left: 50px;
+}
