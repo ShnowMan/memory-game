@@ -1,18 +1,17 @@
 var tileArr = [];
 
-function TileObj(name, color) {
-  this.name = name;
-  this.color = color;
+function TileObj(color) {
+  this.name = color;
   tileArr.push(this);
 };
 
 var createTiles = function() {
-  new TileObj('red', red);
-  new TileObj('blue', blue);
-  new TileObj('green', green);
-  new TileObj('orange', orange);
-  new TileObj('brown', brown);
-  new TileObj('purple', purple);
-  new TileObj('yellow', yellow);
-  new TileObj('cyan', cyan);
+  new TileObj('red');
+  new TileObj('blue');
+  new TileObj('green');
+  new TileObj('orange');
+  new TileObj('brown');
+  new TileObj('purple');
+  new TileObj('yellow');
+  new TileObj('cyan');
 };
