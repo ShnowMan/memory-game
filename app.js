@@ -72,11 +72,11 @@ var tracker = {
     var tileNum = event.target.id;
     tracker.tileElArr[tileNum - 1].style.backgroundColor = tileObjArr[randomTileInd[tileNum - 1]].color;
     tracker.tileFlipCount++;
-    tracker.checkFlipCount();
+    setTimeout(tracker.flipToWhite, 100);
   },
-  checkFlipCount: function() {
+  flipToWhite: function() {
     if (tracker.tileFlipCount === 2) {
-      alert('you flipped 2 tiles');
+      alert('you flipped 2 tiles, now resetting');
       tracker.tileFlipCount = 0;
       for (var i = 0; i < tileObjArr.length; i++) {
         tracker.tileElArr[i].style.backgroundColor = 'white';
