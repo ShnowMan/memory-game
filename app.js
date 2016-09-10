@@ -1,9 +1,9 @@
 var tileObjArr = [];
-var tempInd = [];
+var tempInd = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 var randomTileInd = [];
 
 function TileObj(color) {
-  this.name = color;
+  this.color = color;
   tileObjArr.push(this);
 };
 
@@ -19,15 +19,16 @@ var createTiles = function() {
 };
 
 var tracker = {
-  randomInd: [],
-  makeTileInd: function() {
-    for (var i = 1; i <= 16; i++) {
-      tempInd.push(i);
+  tileElArr: [],
+  tileFlipCount: 0,
+  getTileElements: function() {
+    for (var i = 0; i < tileObjArr.length; i++) {
+      this.tileElArr[i] = document.getElementById(i + 1);
     }
   },
+
   randomizeTileIndex: function() {
     while (tempInd.length > 0) {
-    // for (var i = 0; i < 16; i++) {
       var idx = Math.floor(Math.random() * tempInd.length);
       var thing = tempInd[idx];
       tempInd.splice(idx, 1);
@@ -35,11 +36,28 @@ var tracker = {
     }
   },
 
+  flip: function(event) {
+    var tileNum = event.target.id;
+    tracker.tileElArr[tileNum - 1].style.backgroundColor = tileObjArr[randomTileInd[tileNum - 1]].color;
+    tracker.tileFlipCount++;
+    setTimeout(tracker.flipToWhite, 700);
+
+  },
+  flipToWhite: function() {
+    if (tracker.tileFlipCount === 2) {
+      tracker.tileFlipCount = 0;
+      for (var i = 0; i < tileObjArr.length; i++) {
+        tracker.tileElArr[i].style.backgroundColor = 'white';
+      }
+    }
+  }
 };
 
 createTiles();
 createTiles();
-tracker.makeTileInd();
+tracker.getTileElements();
 tracker.randomizeTileIndex();
-console.log(randomTileInd);
-// console.table(randomTileInd);
+
+for (var i = 0; i < tileObjArr.length; i++) {
+  tracker.tileElArr[i].addEventListener('click', tracker.flip);
+}
