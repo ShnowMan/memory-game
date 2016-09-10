@@ -20,6 +20,7 @@ var createTiles = function() {
 
 var tracker = {
   tileElArr: [],
+  tileFlipCount: 0,
   getTileElements: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
       this.tileElArr[i] = document.getElementById(i + 1);
@@ -70,7 +71,18 @@ var tracker = {
   flip: function(event) {
     var tileNum = event.target.id;
     tracker.tileElArr[tileNum - 1].style.backgroundColor = tileObjArr[randomTileInd[tileNum - 1]].color;
+    tracker.tileFlipCount++;
+    tracker.checkFlipCount();
   },
+  checkFlipCount: function() {
+    if (tracker.tileFlipCount === 2) {
+      alert('you flipped 2 tiles');
+      tracker.tileFlipCount = 0;
+      for (var i = 0; i < tileObjArr.length; i++) {
+        tracker.tileElArr[i].style.backgroundColor = 'white';
+      }
+    }
+  }
 };
 
 
