@@ -51,8 +51,12 @@ var tracker = {
   compareTiles: function() {
     tracker.tileFlipCount = 0;
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
-      alert('You found a match!');
       tracker.tileColorCompareArr = [];
+      if (tracker.tileMatchArr.length >= tileObjArr.length) {
+        alert('Congrats!');
+      } else {
+        alert('You found a match!');
+      }
     } else {
       alert('No match!');
       tracker.tileColorCompareArr = [];
