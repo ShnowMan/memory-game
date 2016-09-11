@@ -52,25 +52,22 @@ var tracker = {
     tracker.tileFlipCount = 0;
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
       alert('You found a match!');
-      tracker.removeTiles();
+      tracker.tileColorCompareArr = [];
     } else {
       alert('No match!');
+      tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tilesReturnWhite();
     }
   },
   tilesReturnWhite: function() {
-    tracker.tileColorCompareArr = [];
     for (var i = 0; i < tileObjArr.length; i++) {
       if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
         tracker.tileElArr[i].style.backgroundColor = 'white';
       }
     }
   },
-  removeTiles: function() {
-    tracker.tileColorCompareArr = [];
-  }
 };
 
 createTiles();
