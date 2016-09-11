@@ -55,11 +55,8 @@ var tracker = {
       tracker.tileColorCompareArr = [];
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         alert('Congrats!');
-      } else {
-        // alert('You found a match!');
       }
     } else {
-      // alert('No match!');
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
