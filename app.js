@@ -4,6 +4,7 @@ var randomTileIdxArr = [];
 
 function TileObj(color) {
   this.color = color;
+  this.match = false;
   tileObjArr.push(this);
 };
 
@@ -23,6 +24,7 @@ var tracker = {
   tileFlipCount: 0,
   tileColorCompareArr: [],
   tileNum: 0,
+  tileMatchArr: [],
   getTileElements: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
       this.tileElArr[i] = document.getElementById(i);
@@ -38,6 +40,7 @@ var tracker = {
   },
   flip: function(event) {
     tileNum = event.target.id;
+    tracker.tileMatchArr.push(tileNum);
     tracker.tileElArr[tileNum].style.backgroundColor = tileObjArr[randomTileIdxArr[tileNum]].color;
     tracker.tileColorCompareArr.push(tracker.tileElArr[tileNum].style.backgroundColor);
     tracker.tileFlipCount++;
@@ -52,14 +55,18 @@ var tracker = {
       tracker.removeTiles();
     } else {
       alert('No match!');
+      tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
+      tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tilesReturnWhite();
     }
   },
   tilesReturnWhite: function() {
-    for (var i = 0; i < tileObjArr.length; i++) {
-      tracker.tileElArr[i].style.backgroundColor = 'white';
-    }
     tracker.tileColorCompareArr = [];
+    for (var i = 0; i < tileObjArr.length; i++) {
+      if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
+        tracker.tileElArr[i].style.backgroundColor = 'white';
+      }
+    }
   },
   removeTiles: function() {
     tracker.tileColorCompareArr = [];
