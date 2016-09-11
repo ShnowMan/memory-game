@@ -44,8 +44,9 @@ var tracker = {
     tracker.tileElArr[tileNum].style.backgroundColor = tileObjArr[randomTileIdxArr[tileNum]].color;
     tracker.tileColorCompareArr.push(tracker.tileElArr[tileNum].style.backgroundColor);
     tracker.tileFlipCount++;
+    tracker.tileElArr[tileNum].removeEventListener('click', tracker.flip);
     if (tracker.tileFlipCount >= 2) {
-      setTimeout(tracker.compareTiles,100);
+      setTimeout(tracker.compareTiles,500);
     }
   },
   compareTiles: function() {
@@ -55,10 +56,10 @@ var tracker = {
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         alert('Congrats!');
       } else {
-        alert('You found a match!');
+        // alert('You found a match!');
       }
     } else {
-      alert('No match!');
+      // alert('No match!');
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
@@ -69,6 +70,7 @@ var tracker = {
     for (var i = 0; i < tileObjArr.length; i++) {
       if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
         tracker.tileElArr[i].style.backgroundColor = 'white';
+        tracker.tileElArr[i].addEventListener('click', tracker.flip);
       }
     }
   },
