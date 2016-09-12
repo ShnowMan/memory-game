@@ -18,6 +18,9 @@ var createTiles = function() {
   new TileObj('yellow');
   new TileObj('cyan');
 };
+var userStats = {
+  score: 500,
+};
 
 var tracker = {
   tileElArr: [],
@@ -53,14 +56,16 @@ var tracker = {
     tracker.tileFlipCount = 0;
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
       tracker.tileColorCompareArr = [];
+      userStats.score += 1000;
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
-        alert('Congrats!');
+        alert('Congrats! You\'re final score is ' + userStats.score + ' points!');
       }
     } else {
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tilesReturnWhite();
+      userStats.score -= 250;
     }
   },
   tilesReturnWhite: function() {
@@ -77,6 +82,8 @@ createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
+
+
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
