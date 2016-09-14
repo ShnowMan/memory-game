@@ -3,7 +3,7 @@ main {
   justify-content: center;
 }
 
-#game_area{
+#game_area {
   height: 500px;
   width: 500px;
   display:flex;
@@ -23,4 +23,9 @@ main {
   height: 100px;
   margin: 10px;
   background-color: white;
+}
+
+#resetButton {
+  display: inline-block;
+  float: right;
 }
