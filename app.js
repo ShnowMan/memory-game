@@ -76,6 +76,9 @@ var tracker = {
       }
     }
   },
+  populateScoreBoard: function() {
+    getElementById('id')
+  }
 };
 
 createTiles();

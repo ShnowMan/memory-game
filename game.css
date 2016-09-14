@@ -10,6 +10,13 @@ main {
   flex-wrap: wrap;
 }
 
+#score_board{
+  height: 100px;
+  width: 200px;
+  border: black 1px solid;
+
+}
+
 .box {
   border: black 1px solid;
   width: 100px;
