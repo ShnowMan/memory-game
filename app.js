@@ -22,7 +22,7 @@ var createTiles = function() {
   new TileObj('cyan');
 };
 var userStats = {
-  score: 500,
+  score: 0,
 };
 
 var tracker = {
@@ -122,6 +122,7 @@ createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
+tracker.populateScoreBoard();
 
 
 
