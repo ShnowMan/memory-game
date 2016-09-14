@@ -57,8 +57,12 @@ var tracker = {
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
       tracker.tileColorCompareArr = [];
       userStats.score += 1000;
+      tracker.resetScoreBoard();
+      tracker.populateScoreBoard();
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         alert('Congrats! You\'re final score is ' + userStats.score + ' points!');
+        tracker.resetScoreBoard();
+        tracker.populateScoreBoard();
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -66,6 +70,8 @@ var tracker = {
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tilesReturnWhite();
       userStats.score -= 250;
+      tracker.resetScoreBoard();
+      tracker.populateScoreBoard();
     }
   },
   tilesReturnWhite: function() {
@@ -76,9 +82,18 @@ var tracker = {
       }
     }
   },
+
   populateScoreBoard: function() {
-    getElementById('id');
+    var scoreBoard = document.getElementById('score_board');
+    var currentScore = document.createElement('li');
+    currentScore.textContent = userStats.score;
+    scoreBoard.appendChild(currentScore);
+  },
+  resetScoreBoard: function() {
+    var scoreBoard = document.getElementById('score_board');
+    scoreBoard.innerHTML = '';
   }
+
 };
 
 createTiles();
