@@ -77,7 +77,7 @@ var tracker = {
     }
   },
   populateScoreBoard: function() {
-    getElementById('id')
+    getElementById('id');
   }
 };
 
