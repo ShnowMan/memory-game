@@ -1,81 +1,77 @@
+/*game.html*/
 .red {
   background-color: red;
 }
-
 .blue {
   background-color: blue;
 }
-
 .green {
   background-color: green;
 }
-
 .orange {
   background-color: orange;
 }
-
 .brown {
   background-color: brown;
 }
-
 .purple {
   background-color: purple;
 }
-
 .yellow {
   background-color: yellow;
 }
-
 .cyan {
   background-color: cyan;
 }
 
+/*aboutus.html*/
 .bio {
-  height: 320px;
-  margin: 20px 0px;
-  border: 1px solid black;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  height: 215px;
+  width: 580px;
+  border: 1px solid beige;
+  color: beige;
 }
-
-#aboutUsHeader {
-  text-align: center;
-}
-
-#aboutUsHeader > h1 {
-  font-size: 40px;
-}
-
-.bio > img, p {
-  float: left;
-  height: 300px;
-}
-
 .bio > img {
-  margin: 10px;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  height: 150px;
+  width: 150px;
 }
-
 .bio > p {
-  width: 500px;
-  margin-left: 50px;
+  float: right;
+  margin-right: 15px;
+  width: 350px;
+  padding: 5px;
 }
+/*.header > h4 {
+margin: 10px 0px;
+}*/
 
+/*applies to all html pages*/
 .page {
   background-image: url("img/wallpaper2.png");
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-color: maroon;
 }
-.page_title {
+.header {
+  height: 150px;
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
   color: beige;
-  font-size: 60px;
-
+  font-size: 34px;
+  justify-content: center;
+}
+.header > h1{
+  margin: 10px 0px;
 }
 .nav_bar {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
-
 }
 .button {
   width: 100px;
