@@ -122,7 +122,7 @@ createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
-
+tracker.addButton();
 
 
 for (var i = 0; i < tileObjArr.length; i++) {
