@@ -80,16 +80,16 @@ var tracker = {
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
-      tracker.tilesReturnWhite();
+      tracker.tilesReturnbeige();
       userStats.score -= 250;
       tracker.resetScoreBoard();
       tracker.populateScoreBoard();
     }
   },
-  tilesReturnWhite: function() {
+  tilesReturnbeige: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
       if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
-        tracker.tileElArr[i].style.backgroundColor = 'white';
+        tracker.tileElArr[i].style.backgroundColor = 'beige';
         tracker.tileElArr[i].addEventListener('click', tracker.flip);
       }
     }
