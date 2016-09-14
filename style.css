@@ -86,3 +86,8 @@ margin: 10px 0px;
   text-decoration: none;
   font-weight: bold;
 }
+
+#instructions {
+  color: beige;
+  font-size: 20px;
+}
