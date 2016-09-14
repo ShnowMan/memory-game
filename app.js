@@ -21,6 +21,9 @@ var createTiles = function() {
   new TileObj('yellow');
   new TileObj('cyan');
 };
+var userStats = {
+  score: 500,
+};
 
 var tracker = {
   tileElArr: [],
@@ -64,15 +67,23 @@ var tracker = {
     tracker.tileFlipCount = 0;
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
       tracker.tileColorCompareArr = [];
+      userStats.score += 1000;
+      tracker.resetScoreBoard();
+      tracker.populateScoreBoard();
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         finishSound.play();
-        alert('Congrats!');
+        alert('Congrats! You\'re final score is ' + userStats.score + ' points!');
+        tracker.resetScoreBoard();
+        tracker.populateScoreBoard();
       }
     } else {
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tilesReturnWhite();
+      userStats.score -= 250;
+      tracker.resetScoreBoard();
+      tracker.populateScoreBoard();
     }
   },
   tilesReturnWhite: function() {
@@ -83,12 +94,26 @@ var tracker = {
       }
     }
   },
+
+  populateScoreBoard: function() {
+    var scoreBoard = document.getElementById('score_board');
+    var currentScore = document.createElement('li');
+    currentScore.textContent = userStats.score;
+    scoreBoard.appendChild(currentScore);
+  },
+  resetScoreBoard: function() {
+    var scoreBoard = document.getElementById('score_board');
+    scoreBoard.innerHTML = '';
+  }
+
 };
 
 createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
+
+
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
