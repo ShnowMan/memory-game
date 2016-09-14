@@ -22,7 +22,7 @@ var createTiles = function() {
   new TileObj('cyan');
 };
 var userStats = {
-  score: 500,
+  score: 0,
 };
 
 var tracker = {
@@ -81,16 +81,16 @@ var tracker = {
       tracker.tileColorCompareArr = [];
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
       tracker.tileMatchArr.splice(tracker.tileMatchArr.length - 1);
-      tracker.tilesReturnWhite();
+      tracker.tilesReturnbeige();
       userStats.score -= 250;
       tracker.resetScoreBoard();
       tracker.populateScoreBoard();
     }
   },
-  tilesReturnWhite: function() {
+  tilesReturnbeige: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
       if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
-        tracker.tileElArr[i].style.backgroundColor = 'white';
+        tracker.tileElArr[i].style.backgroundColor = 'beige';
         tracker.tileElArr[i].addEventListener('click', tracker.flip);
       }
     }
@@ -122,8 +122,8 @@ createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
+tracker.populateScoreBoard();
 tracker.addButton();
-
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
