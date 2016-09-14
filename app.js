@@ -1,7 +1,7 @@
 var tileObjArr = [];
 var tempIdxArr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 var randomTileIdxArr = [];
-var wrongSound = new Audio('http://www.wavsource.com/snds_2016-08-21_1204101428963685/tv/simpsons/homer/aw_crap.wav');
+var wrongSound = new Audio('http://soundfxcenter.com/video-games/mega-man/8d82b5_Mega_Man_Warning_Sound_Effect.mp3');
 var correctSound = new Audio('http://noproblo.dayjo.org/ZeldaSounds/LOZ/LOZ_Fanfare.wav');
 var finishSound = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav');
 
@@ -67,6 +67,7 @@ var tracker = {
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         finishSound.play();
         alert('Congrats!');
+        tracker.addButton();
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -83,6 +84,14 @@ var tracker = {
       }
     }
   },
+  addButton: function() {
+    var buttonDivEl = document.getElementById('resetButton');
+    var resetButtonEl = document.createElement('a');
+    resetButtonEl.className = 'button';
+    resetButtonEl.textContent = 'Play again';
+    resetButtonEl.href = 'game.html';
+    buttonDivEl.appendChild(resetButtonEl);
+  }
 };
 
 createTiles();
