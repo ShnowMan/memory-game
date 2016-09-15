@@ -106,9 +106,12 @@ var tracker = {
 
   populateScoreBoard: function() {
     var scoreBoard = document.getElementById('score_board');
+    var titleBoard = document.createElement('ul');
     var currentScore = document.createElement('li');
     currentScore.textContent = userStats.score;
-    scoreBoard.appendChild(currentScore);
+    titleBoard.textContent = 'Current Score';
+    titleBoard.appendChild(currentScore);
+    scoreBoard.appendChild(titleBoard);
   },
 
   resetScoreBoard: function() {
@@ -123,7 +126,7 @@ createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
-tracker.addButton();
+// tracker.addButton();
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);

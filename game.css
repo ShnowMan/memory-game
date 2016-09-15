@@ -2,6 +2,7 @@ main {
   display: flex;
   justify-content: center;
 }
+
 ul{
   font-size: 24px;
   font-weight: bold;
@@ -11,6 +12,9 @@ ul{
 
 li{
   margin-left: 75px;
+  font-weight: normal;
+  list-style: none;
+
 }
 
 #game_area {
@@ -26,7 +30,6 @@ li{
   border: black 1px solid;
   margin: 10px;
   background: beige;
-  list-style: none;
 
 }
 
