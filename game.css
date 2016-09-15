@@ -2,6 +2,16 @@ main {
   display: flex;
   justify-content: center;
 }
+ul{
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+li{
+  margin-left: 75px;
+}
 
 #game_area {
   height: 500px;
@@ -14,6 +24,7 @@ main {
   height: 100px;
   width: 200px;
   border: black 1px solid;
+  margin: 10px;
   background: beige;
   list-style: none;
 
