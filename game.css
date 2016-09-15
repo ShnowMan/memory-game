@@ -4,17 +4,16 @@ main {
 }
 
 ul{
+  margin-top: 10px;
+  padding: 0px;
+  text-align: center;
   font-size: 24px;
   font-weight: bold;
-  padding-left: 20px;
-  margin-bottom: 12px;
 }
 
 li{
-  margin-left: 75px;
   font-weight: normal;
   list-style: none;
-
 }
 
 #game_area {
@@ -25,12 +24,13 @@ li{
 }
 
 #score_board{
-  height: 100px;
-  width: 200px;
+  position: absolute;
+  right: 100px;
+  height: 80px;
+  width: 180px;
   border: black 1px solid;
   margin: 10px;
   background: beige;
-
 }
 
 .box {
@@ -39,9 +39,11 @@ li{
   height: 100px;
   margin: 10px;
   background-color: beige;
+  cursor: pointer;
 }
 
 #resetButton {
-  display: inline-block;
-  float: right;
+  position: absolute;
+  top: 300px;
+  right: 140px;
 }
