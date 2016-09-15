@@ -73,9 +73,9 @@ var tracker = {
       if (tracker.tileMatchArr.length >= tileObjArr.length) {
         finishSound.play();
         tracker.addButton();
-        alert('Congrats! You\'re final score is ' + userStats.score + ' points!');
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
+        alert('Congrats! Your final score is ' + userStats.score + ' points!');
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -103,7 +103,6 @@ var tracker = {
     resetButtonEl.href = 'game.html';
     buttonDivEl.appendChild(resetButtonEl);
   },
-
   populateScoreBoard: function() {
     var scoreBoard = document.getElementById('score_board');
     var titleBoard = document.createElement('ul');
@@ -113,7 +112,6 @@ var tracker = {
     titleBoard.appendChild(currentScore);
     scoreBoard.appendChild(titleBoard);
   },
-
   resetScoreBoard: function() {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
