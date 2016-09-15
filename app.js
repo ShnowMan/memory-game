@@ -21,6 +21,7 @@ var createTiles = function() {
   new TileObj('yellow');
   new TileObj('cyan');
 };
+
 var userStats = {
   score: 0,
 };
@@ -99,7 +100,7 @@ var tracker = {
     var buttonDivEl = document.getElementById('resetButton');
     var resetButtonEl = document.createElement('a');
     resetButtonEl.className = 'button';
-    resetButtonEl.textContent = 'Play again';
+    resetButtonEl.textContent = 'Play again?';
     resetButtonEl.href = 'game.html';
     buttonDivEl.appendChild(resetButtonEl);
   },
@@ -116,15 +117,14 @@ var tracker = {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
   }
-
 };
+
 
 createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
-// tracker.addButton();
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
