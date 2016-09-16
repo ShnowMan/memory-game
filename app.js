@@ -123,12 +123,15 @@ var tracker = {
   setLocalStorage: function() {
     localStorage.setItem('userScore',JSON.stringify(userStats.score));
   },
-  populateUserHighScores: function(){
 
+  populateUserHighScores: function(){
+    if (localStorage.userScore){
+      var userScore = JSON.parse(localStorage.getItem('userScore'));
+      userHighScores.push(userScore);
+    }
   },
+
   setHighScores: function() {
-    var userScore = JSON.parse(localStorage.getItem('userScore'));
-    userHighScores.push(userScore);
     localStorage.setItem('userHighScore',JSON.stringify(userHighScores));
   }
 };
@@ -138,6 +141,7 @@ createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
+tracker.populateUserHighScores();
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
