@@ -1,6 +1,7 @@
 var tileObjArr = [];
 var tempIdxArr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 var randomTileIdxArr = [];
+var userHighScores = [];
 var wrongSound = new Audio('http://soundfxcenter.com/video-games/mega-man/8d82b5_Mega_Man_Warning_Sound_Effect.mp3');
 var correctSound = new Audio('http://noproblo.dayjo.org/ZeldaSounds/LOZ/LOZ_Fanfare.wav');
 var finishSound = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav');
@@ -77,6 +78,8 @@ var tracker = {
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
         alert('Congrats! Your final score is ' + userStats.score + ' points!');
+        tracker.setLocalStorage();
+        tracker.setHighScores();
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -116,9 +119,19 @@ var tracker = {
   resetScoreBoard: function() {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
+  },
+  setLocalStorage: function() {
+    localStorage.setItem('userScore',JSON.stringify(userStats.score));
+  },
+  populateUserHighScores: function(){
+
+  },
+  setHighScores: function() {
+    var userScore = JSON.parse(localStorage.getItem('userScore'));
+    userHighScores.push(userScore);
+    localStorage.setItem('userHighScore',JSON.stringify(userHighScores));
   }
 };
-
 
 createTiles();
 createTiles();
