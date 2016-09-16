@@ -53,6 +53,9 @@ var tracker = {
     tracker.tileFlipCount++;
     tracker.tileElArr[tileNum].removeEventListener('click', tracker.flip);
     if (tracker.tileFlipCount >= 2) {
+      for (var i = 0; i < tileObjArr.length; i++) {
+        tracker.tileElArr[i].removeEventListener('click', tracker.flip);
+      }
       tracker.playSound();
       setTimeout(tracker.compareTiles,500);
     }
@@ -67,6 +70,11 @@ var tracker = {
   compareTiles: function() {
     tracker.tileFlipCount = 0;
     if (tracker.tileColorCompareArr[0] === tracker.tileColorCompareArr[1]) {
+      for (var i = 0; i < tileObjArr.length; i++) {
+        if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
+          tracker.tileElArr[i].addEventListener('click', tracker.flip);
+        }
+      }
       tracker.tileColorCompareArr = [];
       userStats.score += 1000;
       tracker.resetScoreBoard();
