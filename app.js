@@ -176,6 +176,8 @@ tracker.populateScoreBoard();
 tracker.setGlobalHighScores();
 tracker.populateHighScorePage();
 
-for (var i = 0; i < tileObjArr.length; i++) {
-  tracker.tileElArr[i].addEventListener('click', tracker.flip);
-}
+if (tracker.currentPage[tracker.currentPage.length - 1] === 'game.html'){
+  for (var i = 0; i < tileObjArr.length; i++) {
+    tracker.tileElArr[i].addEventListener('click', tracker.flip);
+  }
+};
