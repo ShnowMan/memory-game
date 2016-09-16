@@ -16,7 +16,7 @@ var createTiles = function() {
   new TileObj('blue');
   new TileObj('green');
   new TileObj('orange');
-  new TileObj('brown');
+  new TileObj('pink');
   new TileObj('purple');
   new TileObj('yellow');
   new TileObj('cyan');
