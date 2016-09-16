@@ -7,7 +7,6 @@ var finishSound = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_st
 
 function TileObj(color) {
   this.color = color;
-  this.match = false;
   tileObjArr.push(this);
 };
 
