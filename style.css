@@ -48,14 +48,24 @@
 }
 
 /*applies to all html pages*/
+body {
+  margin-bottom: 100px;
+}
+
 main {
   width: 900px;
   margin: 0px auto;
 }
 
-img {
-  display: block;
-  margin: 0px auto;
+#mainImgDiv {
+  margin: 20px 0px 0px -17px;
+  width: 102%;
+  background-color: black;
+  text-align: center;
+}
+
+#mainImg {
+  width: 800px;
 }
 
 .page {
@@ -68,17 +78,23 @@ img {
   display: flex;
   margin: 0 auto;
   color: beige;
-  font-size: 34px;
+  font-size: 50px;
   justify-content: center;
 }
 .header > h1{
   margin: 10px 0px;
+  font-family: 'Poiret One', cursive;
 }
 .nav_bar {
-  max-width: 600px;
-  margin: 50px auto 0px auto;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: rgba(51, 1, 5, 0.9);
   display: flex;
   justify-content: space-around;
+  margin-left: -8px;
+  padding: 5px 0px;
+  border-top: 2px solid black;
 }
 .button {
   padding: 10px 10px;
