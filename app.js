@@ -47,6 +47,7 @@ var tracker = {
   flip: function(event) {
     tileNum = event.target.id;
     tracker.tileMatchArr.push(tileNum);
+    tracker.tileElArr[tileNum].className = 'box animated flip';
     tracker.tileElArr[tileNum].style.backgroundColor = tileObjArr[randomTileIdxArr[tileNum]].color;
     tracker.tileColorCompareArr.push(tracker.tileElArr[tileNum].style.backgroundColor);
     tracker.tileFlipCount++;
@@ -56,7 +57,7 @@ var tracker = {
         tracker.tileElArr[i].removeEventListener('click', tracker.flip);
       }
       tracker.playSound();
-      setTimeout(tracker.compareTiles,500);
+      setTimeout(tracker.compareTiles,1500);
     }
   },
   playSound: function() {
@@ -84,6 +85,9 @@ var tracker = {
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
         alert('Congrats! Your final score is ' + userStats.score + ' points!');
+        for (var j = 0; j < tileObjArr.length; j++) {
+          tracker.tileElArr[j].className = 'box animated infinite tada';
+        }
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -100,6 +104,7 @@ var tracker = {
       if (tracker.tileMatchArr.indexOf(i.toString()) < 0) {
         tracker.tileElArr[i].style.backgroundColor = 'beige';
         tracker.tileElArr[i].addEventListener('click', tracker.flip);
+        tracker.tileElArr[i].className = 'box';
       }
     }
   },
