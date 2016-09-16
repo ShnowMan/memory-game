@@ -6,6 +6,7 @@ var wrongSound = new Audio('http://soundfxcenter.com/video-games/mega-man/8d82b5
 var correctSound = new Audio('http://noproblo.dayjo.org/ZeldaSounds/LOZ/LOZ_Fanfare.wav');
 var finishSound = new Audio('http://themushroomkingdom.net/sounds/wav/smb/smb_stage_clear.wav');
 
+
 function TileObj(color) {
   this.color = color;
   this.match = false;
@@ -33,6 +34,12 @@ var tracker = {
   tileColorCompareArr: [],
   tileNum: 0,
   tileMatchArr: [],
+  currentPage: [],
+
+  getCurrentPage: function(){
+    tracker.currentPage = location.pathname.split('/');
+  },
+
   getTileElements: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
       this.tileElArr[i] = document.getElementById(i);
@@ -117,14 +124,17 @@ var tracker = {
     buttonDivEl.appendChild(resetButtonEl);
   },
   populateScoreBoard: function() {
-    var scoreBoard = document.getElementById('score_board');
-    var titleBoard = document.createElement('ul');
-    var currentScore = document.createElement('li');
-    currentScore.textContent = userStats.score;
-    titleBoard.textContent = 'Current Score';
-    titleBoard.appendChild(currentScore);
-    scoreBoard.appendChild(titleBoard);
+    if (tracker.currentPage[tracker.currentPage.length - 1] === 'game.html') {
+      var scoreBoard = document.getElementById('score_board');
+      var titleBoard = document.createElement('ul');
+      var currentScore = document.createElement('li');
+      currentScore.textContent = userStats.score;
+      titleBoard.textContent = 'Current Score';
+      titleBoard.appendChild(currentScore);
+      scoreBoard.appendChild(titleBoard);
+    }
   },
+
   resetScoreBoard: function() {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
@@ -142,16 +152,29 @@ var tracker = {
 
   setLSHighScores: function() {
     localStorage.setItem('userHighScore',JSON.stringify(userHighScores));
-  }
+  },
+
+  populateHighScorePage: function() {
+    if (tracker.currentPage[tracker.currentPage.length - 1] === 'highscores.html') {
+      var highScorePage = document.getElementById('highScore');
+      for (var i = 0; i < userHighScores; i++) {
+        var highScoreLiEl = document.createElement('li');
+        highScoreLiEl.textContent = userHighScores[i];
+        highScorePage.appendChild(highScoreLiEl);
+      }
+    }
+  },
 
 };
 
+tracker.getCurrentPage();
 createTiles();
 createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
 tracker.setGlobalHighScores();
+tracker.populateHighScorePage();
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
