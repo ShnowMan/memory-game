@@ -86,8 +86,9 @@ var tracker = {
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
         alert('Congrats! Your final score is ' + userStats.score + ' points!');
-        tracker.setLocalStorage();
-        tracker.setHighScores();
+        tracker.setLSUserScore();
+        tracker.setGlobalHighScores();
+        tracker.setlsHighScores();
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -128,20 +129,21 @@ var tracker = {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
   },
-  setLocalStorage: function() {
+  setLSUserScore: function() {
     localStorage.setItem('userScore',JSON.stringify(userStats.score));
   },
 
-  populateUserHighScores: function(){
+  setGlobalHighScores: function(){
     if (localStorage.userScore){
       var userScore = JSON.parse(localStorage.getItem('userScore'));
       userHighScores.push(userScore);
     }
   },
 
-  setHighScores: function() {
+  setLSHighScores: function() {
     localStorage.setItem('userHighScore',JSON.stringify(userHighScores));
   }
+
 };
 
 createTiles();
@@ -149,7 +151,7 @@ createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
-tracker.populateUserHighScores();
+tracker.setGlobalHighScores();
 
 for (var i = 0; i < tileObjArr.length; i++) {
   tracker.tileElArr[i].addEventListener('click', tracker.flip);
