@@ -95,7 +95,7 @@ var tracker = {
         alert('Congrats! Your final score is ' + userStats.score + ' points!');
         tracker.setLSUserScore();
         tracker.setGlobalHighScores();
-        tracker.setlsHighScores();
+        tracker.setLSHighScores();
       }
     } else {
       tracker.tileColorCompareArr = [];
@@ -157,13 +157,13 @@ var tracker = {
   populateHighScorePage: function() {
     if (tracker.currentPage[tracker.currentPage.length - 1] === 'highscores.html') {
       var highScorePage = document.getElementById('highScore');
-      for (var i = 0; i < userHighScores; i++) {
+      for (var i = 0; i < userHighScores.length; i++) {
         var highScoreLiEl = document.createElement('li');
         highScoreLiEl.textContent = userHighScores[i];
         highScorePage.appendChild(highScoreLiEl);
       }
     }
-  },
+  }
 
 };
 

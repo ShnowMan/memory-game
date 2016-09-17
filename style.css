@@ -2,24 +2,31 @@
 .red {
   background-color: red;
 }
+
 .blue {
   background-color: blue;
 }
+
 .green {
   background-color: green;
 }
+
 .orange {
   background-color: orange;
 }
+
 .brown {
   background-color: brown;
 }
+
 .purple {
   background-color: purple;
 }
+
 .yellow {
   background-color: yellow;
 }
+
 .cyan {
   background-color: cyan;
 }
@@ -33,6 +40,7 @@
   border: 1px solid beige;
   color: beige;
 }
+
 .bio > img {
   float: left;
   margin: 15px;
@@ -40,6 +48,7 @@
   height: 150px;
   width: 150px;
 }
+
 .bio > p {
   float: right;
   margin-right: 15px;
@@ -55,6 +64,10 @@ body {
 main {
   width: 900px;
   margin: 0px auto;
+}
+
+li {
+ /*color: beige;*/
 }
 
 #mainImgDiv {
@@ -73,6 +86,7 @@ main {
   background-repeat: repeat-y;
   background-color: #601019;
 }
+
 .header {
   height: 150px;
   display: flex;
@@ -81,10 +95,12 @@ main {
   font-size: 50px;
   justify-content: center;
 }
+
 .header > h1{
   margin: 10px 0px;
   font-family: 'Poiret One', cursive;
 }
+
 .nav_bar {
   position: fixed;
   bottom: 0px;
@@ -96,6 +112,7 @@ main {
   padding: 5px 0px;
   border-top: 2px solid black;
 }
+
 .button {
   padding: 10px 10px;
   width: 100px;
@@ -112,7 +129,19 @@ main {
 .button:hover {
   color: rgb(156, 3, 3);
 }
+
 #instructions {
   color: beige;
   font-size: 20px;
+}
+
+#score_board{
+  position: absolute;
+  right: 100px;
+  height: 80px;
+  width: 180px;
+  border: black 1px solid;
+  margin: 10px;
+  background: beige;
+  font: black;
 }
