@@ -23,16 +23,6 @@ li {
   flex-wrap: wrap;
 }
 
-#score_board{
-  position: absolute;
-  right: 100px;
-  height: 80px;
-  width: 180px;
-  border: black 1px solid;
-  margin: 10px;
-  background: beige;
-}
-
 .box {
   border: black 1px solid;
   width: 100px;
