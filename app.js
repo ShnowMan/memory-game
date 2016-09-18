@@ -92,8 +92,7 @@ var tracker = {
         tracker.addButton();
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
-        tracker.setLSUserScore();
-        tracker.setGlobalHighScores();
+        tracker.storeHighScoresArray();
         tracker.setLSHighScores();
       }
     } else {
@@ -138,15 +137,15 @@ var tracker = {
     var scoreBoard = document.getElementById('score_board');
     scoreBoard.innerHTML = '';
   },
-  setLSUserScore: function() {
-    localStorage.setItem('userScore',JSON.stringify(userStats.score));
-  },
 
-  setGlobalHighScores: function(){
-    if (localStorage.userScore){
-      var userScore = JSON.parse(localStorage.getItem('userScore'));
-      userHighScores.push(userScore);
+  storeHighScoresArray: function(){
+    if (localStorage.userHighScore){
+      var lsHighScores = JSON.parse(localStorage.getItem('userHighScore'));
+      for(var i = 0; i < lsHighScores.length; i++){
+        userHighScores.push(lsHighScores[i]);
+      }
     }
+    userHighScores.push(userStats.score);
   },
 
   setLSHighScores: function() {
@@ -178,7 +177,6 @@ createTiles();
 tracker.getTileElements();
 tracker.randomizeTileIndex();
 tracker.populateScoreBoard();
-tracker.setGlobalHighScores();
 tracker.populateHighScorePage();
 
 if (tracker.currentPage[tracker.currentPage.length - 1] === 'game.html'){
