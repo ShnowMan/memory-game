@@ -145,3 +145,8 @@ li {
   background: beige;
   font: black;
 }
+#highScore > li{
+  color: beige;
+  font-size: 30px;
+  list-style: none;
+}

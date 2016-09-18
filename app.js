@@ -42,7 +42,7 @@ var tracker = {
 
   getTileElements: function() {
     for (var i = 0; i < tileObjArr.length; i++) {
-      this.tileElArr[i] = document.getElementById(i);
+      tracker.tileElArr[i] = document.getElementById(i);
     }
   },
   randomizeTileIndex: function() {
@@ -92,7 +92,6 @@ var tracker = {
         tracker.addButton();
         tracker.resetScoreBoard();
         tracker.populateScoreBoard();
-        alert('Congrats! Your final score is ' + userStats.score + ' points!');
         tracker.setLSUserScore();
         tracker.setGlobalHighScores();
         tracker.setLSHighScores();
@@ -156,10 +155,16 @@ var tracker = {
 
   populateHighScorePage: function() {
     if (tracker.currentPage[tracker.currentPage.length - 1] === 'highscores.html') {
+      if (localStorage.userHighScore){
+        var lsHighScores = JSON.parse(localStorage.getItem('userHighScore'));
+        for(var i = 0; i < lsHighScores.length; i++){
+          userHighScores.push(lsHighScores[i]);
+        }
+      }
       var highScorePage = document.getElementById('highScore');
-      for (var i = 0; i < userHighScores.length; i++) {
+      for (var j = 0; j < userHighScores.length; j++) {
         var highScoreLiEl = document.createElement('li');
-        highScoreLiEl.textContent = userHighScores[i];
+        highScoreLiEl.textContent = userHighScores[j];
         highScorePage.appendChild(highScoreLiEl);
       }
     }
